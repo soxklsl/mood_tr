@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Регистрация</title>
+    <style>
+      body {
+        background-color: #b8b8b8;
+      }
+
+      .con {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .con1 {
+        padding: 20px;
+        text-align: center;
+        width: 80%;
+        max-width: 600px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+      
+
+      .input {
+        font-size:16px;
+        font-family: 'Times New Roman', Times, serif;
+        border: 2px solid #0000008b;
+        color: rgba(0, 0, 0, 0.37);
+      }
+
+      .button {
+        background-color: #757575; 
+        border: none;
+        font-family: 'Times New Roman', Times, serif;
+        color: rgba(0, 0, 0, 0.37);
+        border-radius: 4px;
+        padding: 10px 24px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 10px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        border: 2px solid #00000037;
+      }
+            
+      .button:hover {
+        background-color: darkgray;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+      }
+
+
+
+
+          
+    </style>
+</head>
+<body>
+  <div class="con">
+  <div class="con1">
+    <h2 class="abz">Зарегестрируйтесь, введя логин, состоящий только из латиницы, и надежный пароль</h2>
+    <form class="data" method="post">
+      {% csrf_token %}
+      <p><input type="text" class="input input1" name="user_login" placeholder="Введите логин" size="18" maxlength="10" pattern="[A-Za-z]"/></p>
+      <p><input type="text" class="input input2" name="user_password" placeholder="Введите пароль" size="18" maxlength="10"/></p>
+      <p><button type="submit" class="button button1">Отправить</button></p>
+    </form>
+  </div>
+  </div>
+</body>
+</html>
