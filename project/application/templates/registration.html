@@ -76,7 +76,7 @@
     <div class="auth-container">
         <div class="form-wrapper">
             <h2>Зарегистрируйтесь, введя логин (только латиница) и надежный пароль</h2>
-            <form class="data" method="post">
+            <form class="data" method="post" action="postuser/">
                 {% csrf_token %}
                 <input type="text" class="input" name="user_login" 
                        placeholder="Введите логин" 
