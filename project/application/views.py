@@ -8,3 +8,6 @@ def ent_reg(request):
 
 def registration(request):
     return render(request, "registration.html")
+
+def entrance(request):
+    return render(request, "entrance.html")

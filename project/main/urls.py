@@ -3,8 +3,9 @@ from django.urls import path
 from application import views
 
 urlpatterns = [
-    path('', views.main),
-    path('ent_reg', views.ent_reg),
+    path('main', views.main),
+    path('', views.ent_reg),
     path('registration/', views.registration),
+    path('entrance/', views.entrance),
     path('admin/', admin.site.urls)
 ]

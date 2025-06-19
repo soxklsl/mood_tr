@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>MOOD_TRACKER</title>
+    <style>
+        #image_container {
+          width: 100px; 
+          height: 100px; 
+          overflow: hidden; 
+        }
+      
+        #mood_image {
+          width: 100%; 
+          height: auto; 
+          display: block; 
+          object-fit: cover; 
+        }
+
+        div{
+          margin: 10px;
+      }
+      #header{
+          height: 200px;
+          background-color: #ccc;
+      }
+      #content{
+          height: 180px;
+          background-color: #eee;
+      }
+      #footer{
+          height: 80px;
+          background-color: #ccc;
+      }
+
+      </style>
+</head>
+<body style="background-color: lightslategray;">
+  <div id="header">
+    <label for="mood">Какое у Вас настроение сейчас?</label> 
+    <form>
+      <input type="range" id="mood" name="mood" min="1" max="5" value="3">
+      <div id="image_container">
+        <img id="mood_image" src="{% static "moods/1.png" %}" alt="mood">
+      </div>
+      <div>
+        <input type="submit" value="send" />
+      </div>
+    </form>
+  </div>
+    <script>
+        const slider = document.getElementById("mood");
+        const image = document.getElementById("mood_image");
+
+        slider.addEventListener("input", function() {
+            const image_number = slider.value;
+            image.src = "{% static 'moods/' %}" + image_number + ".png";
+        });
+
+    </script>
+</body>
+</html>

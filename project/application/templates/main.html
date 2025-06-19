@@ -1,63 +1,129 @@
 <!DOCTYPE html>
 {% load static %}
-<html>
+<html lang="ru">
 <head>
-    <meta charset="utf-8" />
-    <title>MOOD_TRACKER</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker</title>
     <style>
+        body {
+            background-color: lightslategray;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        #header {
+            background-color: #6d7f8f;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        #content {
+            flex: 1;
+            background-color: #eee;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        #footer {
+            background-color: #6d7f8f;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+        
+        .mood-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
         #image_container {
-          width: 100px; 
-          height: 100px; 
-          overflow: hidden; 
+            width: 120px;
+            height: 120px;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 3px solid #4a5c6b;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16);
         }
-      
+        
         #mood_image {
-          width: 100%; 
-          height: auto; 
-          display: block; 
-          object-fit: cover; 
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
-
-        div{
-          margin: 10px;
-      }
-      #header{
-          height: 200px;
-          background-color: #ccc;
-      }
-      #content{
-          height: 180px;
-          background-color: #eee;
-      }
-      #footer{
-          height: 80px;
-          background-color: #ccc;
-      }
-
-      </style>
+        
+        #mood {
+            width: 100%;
+            margin: 15px 0;
+        }
+        
+        input[type="submit"] {
+            background-color: #4a5c6b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #3a4a57;
+        }
+        
+        label {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
-<body style="background-color: lightslategray;">
-  <div id="header">
-    <label for="mood">Какое у Вас настроение сейчас?</label> 
-    <form>
-      <input type="range" id="mood" name="mood" min="1" max="5" value="3">
-      <div id="image_container">
-        <img id="mood_image" src="{% static "moods/1.png" %}" alt="mood">
-      </div>
-      <div>
-        <input type="submit" value="send" />
-      </div>
-    </form>
-  </div>
+<body>
+    <div id="header">
+        <h1>Mood Tracker</h1>
+    </div>
+    
+    <div id="content">
+        <div class="mood-container">
+            <label for="mood">Какое у вас настроение сегодня?</label>
+            <input type="range" id="mood" name="mood" min="1" max="5" value="3">
+            
+            <div id="image_container">
+                <img id="mood_image" src="{% static 'moods/3.png' %}" alt="Текущее настроение">
+            </div>
+            
+            <form>
+                <input type="submit" value="Сохранить">
+            </form>
+        </div>
+    </div>
+    
+    <div id="footer">
+        <p>© 2023 Mood Tracker</p>
+    </div>
+
     <script>
         const slider = document.getElementById("mood");
         const image = document.getElementById("mood_image");
 
         slider.addEventListener("input", function() {
-            const image_number = slider.value;
-            image.src = "{% static 'moods/' %}" + image_number + ".png";
+            const imageNumber = slider.value;
+            image.src = "{% static 'moods/' %}" + imageNumber + ".png";
         });
-
     </script>
 </body>
 </html>

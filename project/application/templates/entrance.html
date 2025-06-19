@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Регистрация</title>
+    <title>Вход</title>
     <style>
         body {
             background-color:rgb(143, 189, 201);
@@ -75,7 +75,7 @@
 <body>
     <div class="auth-container">
         <div class="form-wrapper">
-            <h2>Зарегистрируйтесь, введя логин (только латиница) и надежный пароль</h2>
+            <h2>Введите логин и пароль, чтобы войти</h2>
             <form class="data" method="post">
                 {% csrf_token %}
                 <input type="text" class="input" name="user_login" 
