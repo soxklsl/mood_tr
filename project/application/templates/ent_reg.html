@@ -42,10 +42,10 @@
 </head>
 <body>
     <div class="auth-container">
-        <form>
+        <form action="{% url 'ent' %}">
             <button type="submit" class="button">Войти</button>
         </form>
-        <form>
+        <form action="{% url 'reg' %}">
             <button type="submit" class="button">Зарегистрироваться</button>
         </form>
     </div>
