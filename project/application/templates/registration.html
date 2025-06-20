@@ -78,17 +78,22 @@
             <h2>Зарегистрируйтесь, введя логин (только латиница) и надежный пароль</h2>
             <form class="data" method="post" action="postuser/">
                 {% csrf_token %}
-                <input type="text" class="input" name="user_login" 
+                <input type="text" class="input" name="username" 
                        placeholder="Введите логин" 
                        size="18" 
                        maxlength="10" 
                        pattern="[A-Za-z]+"
+                       title="Только латинские буквы"
                        required>
                 
-                <input type="password" class="input" name="user_password" 
+                <input type="password" class="input" name="password1" 
                        placeholder="Введите пароль" 
                        size="18" 
-                       maxlength="10"
+                       required>
+
+                <input type="password" class="input" name="password2" 
+                       placeholder="Повторите пароль" 
+                       size="18" 
                        required>
                 
                 <button type="submit" class="button">Отправить</button>
